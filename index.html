@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background-Color-Changer</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+        transition: background-color 0.3s ease;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="message">Current Color: White</h1>
+
+    <button id="change-color-btn">
+      Change Background Color
+    </button>
+
+    <script>
+      const button = document.querySelector("#change-color-btn");
+      const message = document.querySelector(".message");
+
+      function changeBackgroundColor() {
+        const colors = [
+          "lightblue",
+          "lightgreen",
+          "lightpink",
+          "lightyellow",
+          "lavender",
+          "black"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        const selectedColor = colors[randomIndex];
+
+        document.body.style.backgroundColor = selectedColor;
+        message.textContent = `Current Color: ${selectedColor}`;
+      }
+
+      button.addEventListener("click", changeBackgroundColor);
+    </script>
+  </body>
+</html>
